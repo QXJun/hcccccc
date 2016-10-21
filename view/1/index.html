@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <style>
+        html,body,div,p,h1,h2,h3,a,img,ul,li,span,em,i,dd,dl{padding:0;margin:0;}
+        html,body{overflow-x:hidden;}
+        .wb-x-wrap{
+            width:100%;
+            height:auto;
+            font-size:14px;
+            font-family:"Microsoft YaHei",Helvetica,PingFang,Hiragino Sans,\\5FAE\8F6F\96C5\9ED1,Arial,sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow:hidden;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            background: url("about:blank");
+            position: relative;
+        }
+        img{
+            border:0;
+            vertical-align:top;
+        }
+        ul,li{
+            list-style:none;
+        }
+        em,i{
+            font-style:normal;
+        }
+        body{
+            background: #eeeeee;
+        }
+        input{
+            border: none;
+            outline: none;
+        }
+        .clearfix:after{
+            content:'';
+            display:block;
+            visibility:hidden;
+            height:0;
+            clear:both;
+        }
+        .clearfix{
+            *zoom:1;
+        }
+        .f-left{
+            float:left;
+        }
+        .m-center{
+            margin: 0 auto;
+        }
+        .f-right{
+            float:right;
+        }
+        /*header*/
+        .wsh-header{
+            width:100%;
+            background:#fff;
+            border-bottom: 2px solid #00a3a3;
+            position: fixed;
+            left:0;
+            top:0;
+            z-index:998;
+        }
+        .wsh-ct{
+            width:990px;
+            margin:0 auto;
+            position:relative;
+        }
+        .wsh-logo{
+            display:block;
+            width:300px;
+            height:68px;
+        }
+        .wsh-timeline{
+            position:absolute;
+            top:0;
+            left:315px;
+        }
+        .wsh-cwn{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 147px;
+            height: 138px;
+            background: url("https://img.alicdn.com/tps/TB1eWVwNVXXXXcOaXXXXXXXXXXX-147-138.png") top center no-repeat;
+        }
+        .wsh-follow{
+            position:absolute;
+            top:0;
+            right:0;
+            width:147px;
+            height:67px;
+            display:block;
+            cursor:pointer;
+        }
+        .wsh-countdown{
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 147px;
+            height: 21px;
+            line-height: 22px;
+            font-size: 16px;
+            overflow:hidden;
+            color: #0c0c0c;
+        }
+        .ct,.cs{
+            position:absolute;
+            display:inline-block;
+            width:15px;
+            height:23px;
+            line-height:22px;
+            margin-right:3px;
+        }
+        .ct{
+            left:0;
+        }
+        .cs{
+            left:17px;
+        }
+        .prevt{
+            position:absolute;
+            top:-22px;
+        }
+        .prevs{
+            position:absolute;
+            top:-22px;
+        }
+        .currt{
+            position:absolute;
+            top:0;
+        }
+        .currs{
+            position:absolute;
+            top:0;
+        }
+        .wsh_day{
+            position:absolute;
+            top:0;
+            left:19px;
+
+        }
+        .wsh_hour{
+            position:absolute;
+            top:0;
+            left:61px;
+        }
+        .wsh_minute{
+            position:absolute;
+            top:0;
+            left:103px;
+        }
+        /*public-foot*/
+        .foot-wrap {
+            background-color: #eeeeee;
+            min-width: 990px;
+            font-family:STHeitiSC-Light;
+            z-index: 889;
+            height: 50px;
+        }
+        .foot-content {
+            width: 990px;
+            margin: 0 auto;
+        }
+        /*响应设计 小于1200px 显示 990px宽度头 */
+        @media (max-width: 1200px) {
+            .wsh-nav{
+                top: 300px !important;
+                margin-left: 451px !important;
+
+            }
+            .foot-content{
+                width: 990px;
+            }
+        }
+        .wsh-nav{
+            position: fixed;
+            left: 50%;
+            margin-left: 520px;
+            top: 125px;
+            z-index: 666;
+        }
+        .nav-btn{
+            position: absolute;
+            top:67px;
+            left: 15px;
+            width: 101px;
+            height: 25px;
+            background: url("https://img.alicdn.com/tps/TB11GyqNVXXXXc3XXXXXXXXXXXX-101-75.png");
+        }
+        .nav-btn1{
+            background-position: 0 0;
+        }
+        .nav-btn1:hover{
+            background-position: 0 -25px;
+        }
+        .nav-btn2{
+            background-position: 0 -50px;
+        }
+        .wsh-banner{
+            background: url("https://img.alicdn.com/tps/TB1HBVJNVXXXXbPXVXXXXXXXXXX-1920-401.jpg") top center no-repeat;
+        }
+        .wsh-linebg{
+            position: absolute;
+            top:0;
+            left: -465px;
+            opacity: 0.6;
+            width: 1920px;
+            height: 463px;
+            filter:alpha(opacity=60);
+            z-index: 3;
+            animation: flash 0.8s linear infinite alternate;
+            -webkit-animation:flash 0.8s linear infinite alternate;
+            -moz-animation:flash 0.8s linear infinite alternate;
+            -o-animation:flash 0.8s linear infinite alternate;
+            -ms-animation:flash 0.8s linear infinite alternate;
+        }
+        .wsh-orders{
+            width: 990px;
+            height: 460px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 4;
+        }
+        .order{
+            position: absolute;
+        }
+        .wsh-od1{
+            top: 256px;
+            left: -27px;
+            animation: float-1 3s linear 0.3s infinite alternate;
+            -webkit-animation:float-1 3s linear 0.3s infinite alternate;
+            -moz-animation:float-1 3s linear 0.3s infinite alternate;
+            -o-animation:float-1 3s linear 0.3s infinite alternate;
+            -ms-animation:float-1 3s linear 0.3s infinite alternate;
+            transform-origin: 20% -320%;
+            -webkit-transform-origin:20% -320%;
+            -moz-transform-origin:20% -320%;
+            -o-transform-origin:20% -320%;
+            -ms-transform-origin:20% -320%;
+        }
+        .wsh-od2{
+            top: 124px;
+            left: 44px;
+            animation: float-2 3s linear 0.2s infinite alternate;
+            -webkit-animation: float-2 3s linear 0.2s infinite alternate;
+            -moz-animation: float-2 3s linear 0.2s infinite alternate;
+            -o-animation: float-2 3s linear 0.2s infinite alternate;
+            -ms-animation: float-2 3s linear 0.2s infinite alternate;
+            transform-origin: -20% -100%;
+            -webkit-transform-origin: -20% -100%;
+            -moz-transform-origin: -20% -100%;
+            -o-transform-origin: -20% -100%;
+            -ms-transform-origin: -20% -100%;
+        }
+        .wsh-od3{
+            top: 232px;
+            left: 164px;
+            animation: inhale-1 1.6s linear  infinite;
+            -webkit-animation: inhale-1 1.6s linear  infinite;
+            -moz-animation: inhale-1 1.6s linear  infinite;
+            -o-animation: inhale-1 1.6s linear  infinite;
+            -ms-animation: inhale-1 1.6s linear  infinite;
+        }
+        .wsh-od4{
+            top: 352px;
+            left: 178px;
+            animation: inhale-1 2.1s linear  infinite;
+            -webkit-animation: inhale-1 2.1s linear  infinite;
+            -moz-animation: inhale-1 2.1s linear  infinite;
+            -o-animation: inhale-1 2.1s linear  infinite;
+            -ms-animation: inhale-1 2.1s linear  infinite;
+        }
+        .wsh-od14{
+            top: 410px;
+            left: 173px;
+            animation: inhale-1 2.4s linear  infinite;
+            -webkit-animation: inhale-1 2.4s linear  infinite;
+            -moz-animation: inhale-1 2.4s linear  infinite;
+            -o-animation: inhale-1 2.4s linear  infinite;
+            -ms-animation: inhale-1 2.4s linear  infinite;
+        }
+        .wsh-od15{
+             top: 400px;
+             left: 220px;
+             animation: inhale-1 2.5s linear  infinite;
+             -webkit-animation: inhale-1 2.5s linear  infinite;
+             -moz-animation: inhale-1 2.5s linear  infinite;
+             -o-animation: inhale-1 2.5s linear  infinite;
+             -ms-animation: inhale-1 2.5s linear  infinite;
+         }
+        .wsh-od16{
+            top: 401px;
+            left: 265px;
+            animation: inhale-1 2.35s linear  infinite;
+            -webkit-animation: inhale-1 2.35s linear  infinite;
+            -moz-animation: inhale-1 2.35s linear  infinite;
+            -o-animation: inhale-1 2.35s linear  infinite;
+            -ms-animation: inhale-1 2.35s linear  infinite;
+        }
+        .wsh-od17{
+            top: 443px;
+            left: 227px;
+            animation: inhale-1 1.9s linear  infinite;
+            -webkit-animation: inhale-1 1.9s linear  infinite;
+            -moz-animation: inhale-1 1.9s linear  infinite;
+            -o-animation: inhale-1 1.9s linear  infinite;
+            -ms-animation: inhale-1 1.9s linear  infinite;
+        }
+        .wsh-od5{
+            top: 190px;
+            left: 259px;
+            animation: float-2 3s linear 0.3s infinite alternate;
+            -webkit-animation: float-2 3s linear 0.3s infinite alternate;
+            -moz-animation: float-2 3s linear 0.3s infinite alternate;
+            -o-animation: float-2 3s linear 0.3s infinite alternate;
+            -ms-animation: float-2 3s linear 0.3s infinite alternate;
+            transform-origin: center -220%;
+            -webkit-transform-origin:center -220%;
+            -moz-transform-origin:center -220%;
+            -o-transform-origin:center -220%;
+            -ms-transform-origin:center -220%;
+        }
+        .wsh-od6{
+            top: 211px;
+            left: 498px;
+            animation: inhale-2 3s linear infinite;
+            -webkit-animation:inhale-2 3s linear infinite ;
+            -moz-animation:inhale-2 3s linear infinite ;
+            -o-animation:inhale-2 3s linear infinite ;
+            -ms-animation:inhale-2 3s linear infinite ;
+        }
+        .wsh-od7{
+            top: 375px;
+            left: 524px;
+            animation: inhale-2 1.4s linear infinite;
+            -webkit-animation:inhale-2 1.4s linear infinite ;
+            -moz-animation:inhale-2 1.4s linear infinite ;
+            -o-animation:inhale-2 1.4s linear infinite ;
+            -ms-animation:inhale-2 1.4s linear infinite ;
+        }
+        .wsh-od8{
+            top: 115px;
+            right: 192px;
+            animation: float-1 3s linear 0.3s infinite alternate;
+            -webkit-animation:float-1 3s linear 0.3s infinite alternate;
+            -moz-animation:float-1 3s linear 0.3s infinite alternate;
+            -o-animation:float-1 3s linear 0.3s infinite alternate;
+            -ms-animation:float-1 3s linear 0.3s infinite alternate;
+            transform-origin: 20% -320%;
+            -webkit-transform-origin:20% -320%;
+            -moz-transform-origin:20% -320%;
+            -o-transform-origin:20% -320%;
+            -ms-transform-origin:20% -320%;
+        }
+        .wsh-od9{
+            top: 195px;
+            right: 200px;
+            animation: float-2 3s linear 0.2s infinite alternate;
+            -webkit-animation: float-2 3s linear 0.2s infinite alternate;
+            -moz-animation: float-2 3s linear 0.2s infinite alternate;
+            -o-animation: float-2 3s linear 0.2s infinite alternate;
+            -ms-animation: float-2 3s linear 0.2s infinite alternate;
+            transform-origin: -20% -100%;
+            -webkit-transform-origin: -20% -100%;
+            -moz-transform-origin: -20% -100%;
+            -o-transform-origin: -20% -100%;
+            -ms-transform-origin: -20% -100%;
+        }
+        .wsh-od10{
+            top: 332px;
+            right: 146px;
+            animation: inhale-3 1.4s linear infinite;
+            -webkit-animation:inhale-3 1.4s linear infinite ;
+            -moz-animation:inhale-3 1.4s linear infinite ;
+            -o-animation:inhale-3 1.4s linear infinite ;
+            -ms-animation:inhale-3 1.4s linear infinite ;
+        }
+        .wsh-od11{
+            top: 388px;
+            right: 168px;
+            animation: inhale-3 1.6s linear infinite;
+            -webkit-animation:inhale-3 1.6s linear infinite ;
+            -moz-animation:inhale-3 1.6s linear infinite ;
+            -o-animation:inhale-3 1.6s linear infinite ;
+            -ms-animation:inhale-3 1.6s linear infinite ;
+        }
+        .wsh-od18{
+            top: 429px;
+            right: 196px;
+            animation: inhale-3 1.8s linear infinite;
+            -webkit-animation:inhale-3 1.8s linear infinite ;
+            -moz-animation:inhale-3 1.8s linear infinite ;
+            -o-animation:inhale-3 1.8s linear infinite ;
+            -ms-animation:inhale-3 1.8s linear infinite ;
+        }
+        .wsh-od19{
+            top: 447px;
+            right: 245px;
+            animation: inhale-3 2.1s linear infinite;
+            -webkit-animation:inhale-3 2.1s linear infinite ;
+            -moz-animation:inhale-3 2.1s linear infinite ;
+            -o-animation:inhale-3 2.1s linear infinite ;
+            -ms-animation:inhale-3 2.1s linear infinite ;
+        }
+        .wsh-od20{
+            top: 490px;
+            right: 269px;
+            animation: inhale-3 2.1s linear infinite;
+            -webkit-animation:inhale-3 2.1s linear infinite ;
+            -moz-animation:inhale-3 2.1s linear infinite ;
+            -o-animation:inhale-3 2.1s linear infinite ;
+            -ms-animation:inhale-3 2.1s linear infinite ;
+        }
+        .wsh-od21{
+            top: 480px;
+            right: 200px;
+            animation: inhale-3 2.05s linear infinite;
+            -webkit-animation:inhale-3 2.05s linear infinite ;
+            -moz-animation:inhale-3 2.05s linear infinite ;
+            -o-animation:inhale-3 2.05s linear infinite ;
+            -ms-animation:inhale-3 2.05s linear infinite ;
+        }
+        .wsh-od12{
+            top: 390px;
+            right: 527px;
+            animation: inhale-2 1.5s linear infinite;
+            -webkit-animation:inhale-2 1.5s linear infinite ;
+            -moz-animation:inhale-2 1.5s linear infinite ;
+            -o-animation:inhale-2 1.5s linear infinite ;
+            -ms-animation:inhale-2 1.5s linear infinite ;
+        }
+        .wsh-k1{
+            top: 112px;
+            left: 150px;
+            width: 90px;
+            height: 30px;
+            background: url("https://img.alicdn.com/tps/TB1IWyBNVXXXXbpXpXXXXXXXXXX-93-30.png") no-repeat;
+        }
+        .wsh-k2{
+            top: 90px;
+            left: 555px;
+            width: 142px;
+            height: 42px;
+            background: url("https://img.alicdn.com/tps/TB1l1qgNVXXXXXLaXXXXXXXXXXX-142-42.png") no-repeat;
+        }
+        .wsh-k3{
+            top: 260px;
+            left: 885px;
+            width: 102px;
+            height: 32px;
+            background: url("https://img.alicdn.com/tps/TB1MgWDNVXXXXXyXpXXXXXXXXXX-102-32.png") no-repeat;
+        }
+        .k1-txt{
+            font-size: 12px;
+            line-height: 20px;
+            color: #65a0e2;
+            padding: 5px 0 0 24px;
+        }
+        .k2-txt{
+            font-size: 19px;
+            line-height: 30px;
+            color: #65a0e2;
+            padding: 7px 0 0 35px;
+        }
+        .k3-txt{
+            font-size: 13px;
+            line-height: 21px;
+            color: #65a0e2;
+            margin: 5px 0 0 26px;
+        }
+        .wsh-fd{
+            position: absolute;
+            top:0;
+            left: -465px;
+            z-index: 5;
+        }
+        .wsh-main{
+            background: url("https://img.alicdn.com/tps/TB1KWVMNVXXXXaqXVXXXXXXXXXX-1920-597.jpg") top center no-repeat;
+        }
+        .wsh-cbt{
+            width: 990px;
+            min-height: 508px;
+            background: url("https://img.alicdn.com/tps/TB1R6d0NVXXXXcpXpXXXXXXXXXX-990-597.jpg") no-repeat;
+            padding-bottom: 20px;
+        }
+        .wsh-content{
+            position: relative;
+            z-index: 7;
+            padding-top: 1px;
+        }
+        .wsh-mainbx{
+            margin-top: 30px;
+            width: 990px;
+            background: url("https://img.alicdn.com/tps/TB1x2VFNVXXXXXBaXXXXXXXXXXX-990-20.png") repeat;
+            overflow: hidden;
+        }
+        .wsh-cant{
+            width: 100%;
+            text-align: center;
+            color: #ffffff;
+            font-size: 24px;
+            line-height: 38px;
+            font-weight: bold;
+            padding: 90px 0 95px 0;
+        }
+        .wsh-btnbg1{
+            position: relative;
+            width: 990px;
+            height: 72px;
+            background: url("https://img.alicdn.com/tps/TB1IixZNVXXXXa7XVXXXXXXXXXX-990-72.png") no-repeat;
+        }
+        .wsh-btn{
+            width: 257px;
+            height: 61px;
+            background: url("https://img.alicdn.com/tps/TB1y7pNNVXXXXbsaXXXXXXXXXXX-257-520.png") no-repeat;
+            cursor: pointer;
+        }
+        .wsh-btn1{
+            position: absolute;
+            top: 6px;
+            left: 376px;
+            background-position: 0 0;
+        }
+        .wsh-btn1:hover{
+            background-position: 0 -65px;
+        }
+        .wsh-rule{
+            position: relative;
+            width: 93px;
+            margin:0 auto;
+            margin-top: 25px;
+            z-index: 8;
+        }
+        .wsh-msg{
+            width: 537px;
+            height: 85px;
+            background: url("https://img.alicdn.com/tps/TB1HQX2NVXXXXapXVXXXXXXXXXX-537-85.png") no-repeat;
+            color:#45c5e0;
+            font-size: 16px;
+            line-height: 24px;
+            text-align: center;
+            position: absolute;
+            top:-30px;
+            left: 225px;
+        }
+        .wsh-msg p{
+            margin-top: 41px;
+        }
+        .wsh-mainbx2{
+            margin-top: 58px;
+        }
+        .wsh-card1{
+            width: 360px;
+            height: 445px;
+            background: url("https://img.alicdn.com/tps/TB1_GlMNVXXXXX.apXXXXXXXXXX-360-445.png") no-repeat;
+            margin: 11px 0 16px 118px;
+            position: relative;
+            color: #ffffff;
+            font-size: 18px;
+            line-height: 24px;
+        }
+        .card-tit{
+            width: 100%;
+            font-size: 34px;
+            font-weight: bold;
+            line-height: 50px;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .card-time{
+            width: 100%;
+            text-align: center;
+            padding-top: 15px;
+        }
+        .card-zgl{
+            width: 100%;
+            text-align: center;
+            font-size: 28px;
+            line-height: 42px;
+            padding-top: 35px;
+        }
+        .card-zgl p{
+            font-size: 60px;
+            line-height: 80px;
+        }
+        .card-lyd{
+            padding: 15px 0 17px 32px;
+        }
+        .card-ly{
+            width: 145px;
+            text-align: center;
+            float: left;
+        }
+        .card-ly p{
+            padding-top: 5px;
+        }
+        .wsh-btn2{
+            width: 229px;
+            height: 55px;
+            margin-left: 64px;
+            background-position:0 -130px;
+        }
+        .wsh-btn2:hover{
+            background-position: 0 -195px;
+        }
+        .wsh-ewm{
+            position: absolute;
+            top: 124px;
+            right: 105px;
+        }
+        .wsh-card2{
+            width: 396px;
+            height: 336px;
+            background: url("https://img.alicdn.com/tps/TB1kbpPNVXXXXbkapXXXXXXXXXX-396-336.png") no-repeat;
+            margin: 10px 0 16px 24px;
+            position: relative;
+            color: #ffffff;
+            font-size: 18px;
+            line-height: 24px;
+        }
+        .card-txt{
+            width: 100%;
+            text-align: center;
+            padding: 25px 0 45px 0;
+        }
+        .card-tit2{
+            padding-top: 60px;
+        }
+        .wsh-btn3{
+            width: 241px;
+            height: 61px;
+            margin-left: 64px;
+            background-position:0 -260px;
+        }
+        .wsh-btn3:hover{
+            background-position: 0 -325px;
+        }
+        .wsh-ylb{
+            margin:10px 0 0 30px;
+            width: 495px;
+            color: #ffffff;
+            font-size: 15px;
+            position: relative;
+        }
+        .ylb-tit{
+            width: 100%;
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .ylb-lyd{
+            width: 100%;
+            margin: 40px 0 0 21px;
+            position: relative;
+        }
+        .ylb-ly{
+            position: absolute;
+            width: 150px;
+        }
+        .ylb-ly p{
+            font-size: 19px;
+            line-height: 27px;
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+        .ylb-ly1{
+            top: 78px;
+            left: 102px;
+        }
+        .ylb-ly2{
+            top: 78px;
+            left: 370px;
+        }
+        .ylb-ly3{
+            top: 196px;
+            left: 102px;
+        }
+        .ylb-ly4{
+            top: 196px;
+            left: 370px;
+        }
+        .wsh-btnbg2{
+            position: relative;
+            width: 990px;
+            height: 72px;
+            background: url("https://img.alicdn.com/tps/TB17eylNVXXXXagXpXXXXXXXXXX-991-72.png") no-repeat;
+        }
+        .wsh-btn4{
+            position: absolute;
+            top: 6px;
+            left: 377px;
+            width: 241px;
+            height: 61px;
+            background-position: 0 -390px;
+        }
+        .wsh-btn4:hover{
+            background-position: 0 -455px;
+        }
+        .wsh-ware{
+            width: 360px;
+            height: 230px;
+            margin-top: 15px;
+            margin-bottom: 23px;
+            position: relative;
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 24px;
+
+        }
+        .ware-tit{
+            width: 100%;
+            font-size: 24px;
+            position: absolute;
+            text-align: center;
+            top: 33px;
+            left: 0;
+        }
+        .ware-txt{
+            width: 100%;
+            position: absolute;
+            text-align: center;
+            top: 76px;
+            left: 0;
+        }
+        .ware-bx{
+            margin-left: 117px
+        }
+        .ware-bx .wsh-ware{
+            margin-right: 40px;
+        }
+        .pop-close{
+            width: 45px;
+            height: 43px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 2px;
+        }
+        .pop-mask{
+            position:fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: .85;
+            display: none;
+            z-index: 888;
+            filter:alpha(opacity=85);
+        }
+        .rule-pop{
+            width: 990px;
+            min-height: 50px;
+            z-index: 999;
+            position: absolute;
+            left: 50%;
+            top: 123px;
+            margin-left: -495px;
+            color: #fff;
+            display: none;
+        }
+        .rule-pop .pop-close{
+            position: absolute;
+            top: 26px;
+            right: -3px;
+        }
+        .rule-close-img{
+            position: absolute;
+            right: 10px;
+            top: 40px;
+        }
+        .rule-text{
+            margin-top: 30px;
+        }
+        .rule-tit{
+            width: 990px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .rule-list{
+            padding-top: 25px;
+            font-size: 14px;
+        }
+        .detail{
+            padding-bottom: 25px;
+            width: 879px;
+        }
+        .detail-tit{
+            font-size: 16px;font-weight: bold;
+        }
+        .detail-list li{
+            width: 879px;
+        }
+        .detail-list li span{
+            display: block;
+            float: left;
+        }
+        .detail-list li em{
+            width: 855px;
+            display: block;
+            float: left;
+            text-align: justify;
+        }
+        @keyframes flash {
+            0%{opacity: 0}
+            100%{opacity: 0.6}
+        }
+        @-webkit-keyframes flash {
+            0%{opacity: 0}
+            100%{opacity: 0.6}
+        }
+        @-moz-keyframes flash {
+            0%{opacity: 0}
+            100%{opacity: 0.6}
+        }
+        @-o-keyframes flash {
+            0%{opacity: 0}
+            100%{opacity: 0.6}
+        }
+        @-ms-keyframes flash {
+            0%{opacity: 0}
+            100%{opacity: 0.6}
+        }
+        @keyframes float-1 {
+            0%{transform: rotate(8deg)}
+            100%{transform: rotate(-8deg) }
+        }
+        @-webkit-keyframes float-1 {
+            0%{-webkit-transform:rotate(8deg)}
+            100%{-webkit-transform:rotate(-8deg) }
+        }
+        @-moz-keyframes float-1 {
+            0%{-moz-transform:rotate(8deg)}
+            100%{-moz-transform:rotate(-8deg) }
+        }
+        @-o-keyframes float-1 {
+            0%{-o-transform:rotate(8deg)}
+            100%{-o-transform:rotate(-8deg) }
+        }
+        @-ms-keyframes float-1 {
+            0%{-ms-transform:rotate(8deg)}
+            100%{-ms-transform:rotate(-8deg) }
+        }
+        @keyframes float-2 {
+            0%{transform: rotate(-8deg)}
+            100%{transform: rotate(8deg) }
+        }
+        @-webkit-keyframes float-2 {
+            0%{-webkit-transform:rotate(-8deg)}
+            100%{-webkit-transform:rotate(8deg) }
+        }
+        @-moz-keyframes float-2 {
+            0%{-moz-transform:rotate(-8deg)}
+            100%{-moz-transform:rotate(8deg) }
+        }
+        @-o-keyframes float-2 {
+            0%{-o-transform:rotate(-8deg)}
+            100%{-o-transform:rotate(8deg) }
+        }
+        @-ms-keyframes float-2 {
+            0%{-ms-transform:rotate(-8deg)}
+            100%{-ms-transform:rotate(8deg) }
+        }
+        @keyframes inhale-1 {
+            0%{transform: scale(1) ;opacity: 1}
+            70%{opacity: 0.8;}
+            90%{transform: scale(0.1)}
+            99%{left:125px;top: 175px;transform: scale(0) rotate(45deg);opacity: 0;}
+            100%{transform: scale(0) rotate(0deg);opacity: 0}
+        }
+        @-webkit-keyframes inhale-1 {
+            0%{-webkit-transform: scale(1);opacity: 1}
+            70%{opacity: 0.8;}
+            90%{-webkit-transform: scale(0.1)}
+            99%{left:125px;top: 175px;-webkit-transform: rotate(45deg);opacity: 0;}
+            100%{-webkit-transform: scale(0) rotate(0deg);opacity: 0}
+        }
+        @-moz-keyframes inhale-1 {
+            0%{-moz-transform: scale(1);opacity: 1}
+            70%{opacity: 0.8;}
+            90%{-moz-transform: scale(0.1)}
+            99%{left:125px;top: 175px;-moz-transform: rotate(45deg);opacity: 0;}
+            100%{-moz-transform: scale(0) rotate(0deg);opacity: 0}
+        }
+        @-o-keyframes inhale-1 {
+            0%{-o-transform: scale(1);opacity: 1}
+            70%{opacity: 0.8;}
+            90%{-o-transform: scale(0.1)}
+            99%{left:125px;top: 175px;-o-transform: rotate(45deg);opacity: 0;}
+            100%{-o-transform: scale(0) rotate(0deg);opacity: 0}
+        }
+        @-ms-keyframes inhale-1 {
+            0%{-ms-transform: scale(1);opacity: 1}
+            70%{opacity: 0.8;}
+            90%{-ms-transform: scale(0.1)}
+            99%{left:125px;top: 175px;-ms-transform: rotate(45deg);opacity: 0;}
+            100%{-ms-transform: scale(0) rotate(0deg);opacity: 0}
+        }
+        @keyframes  inhale-2{
+            0%{transform: scale(1) rotate(0deg);opacity: 1}
+            20%{transform: scale(1) rotate(20deg)}
+            40%{transform:scale(1) rotate(-20deg)}
+            60%{transform:scale(1) rotate(20deg)}
+            80%{opacity: 0.8;transform: scale(0.2) rotate(0deg)}
+            100%{left: 495px;top: 210px;transform: scale(0) rotate(45deg);opacity: 0 }
+        }
+        @-webkit-keyframes inhale-2 {
+            0%{-webkit-transform: scale(1) rotate(0deg);opacity: 1}
+            20%{-webkit-transform: scale(1) rotate(20deg)}
+            40%{-webkit-transform:scale(1) rotate(-20deg)}
+            60%{-webkit-transform:scale(1) rotate(20deg)}
+            80%{opacity: 0.8;-webkit-transform: scale(0.2) rotate(0deg)}
+            100%{left: 495px;top: 210px;-webkit-transform: scale(0) rotate(45deg);opacity: 0 }
+        }
+        @-moz-keyframes inhale-2 {
+            0%{-moz-transform: scale(1) rotate(0deg);opacity: 1}
+            20%{-moz-transform: scale(1) rotate(20deg)}
+            40%{-moz-transform:scale(1) rotate(-20deg)}
+            60%{-moz-transform:scale(1) rotate(20deg)}
+            80%{opacity: 0.8;-moz-transform: scale(0.2) rotate(0deg)}
+            100%{left: 495px;top: 210px;-moz-transform: scale(0) rotate(45deg);opacity: 0 }
+        }
+        @-o-keyframes inhale-2 {
+            0%{-o-transform: scale(1) rotate(0deg);opacity: 1}
+            20%{-o-transform: scale(1) rotate(20deg)}
+            40%{-o-transform:scale(1) rotate(-20deg)}
+            60%{-o-transform:scale(1) rotate(20deg)}
+            80%{opacity: 0.8;-o-transform: scale(0.2) rotate(0deg)}
+            100%{left: 495px;top: 210px;-o-transform: scale(0) rotate(45deg);opacity: 0 }
+        }
+        @-ms-keyframes inhale-2 {
+            0%{-ms-transform: scale(1) rotate(0deg);opacity: 1}
+            20%{-ms-transform: scale(1) rotate(20deg)}
+            40%{-ms-transform:scale(1) rotate(-20deg)}
+            60%{-ms-transform:scale(1) rotate(20deg)}
+            80%{opacity: 0.8;-ms-transform: scale(0.2) rotate(0deg)}
+            100%{left: 495px;top: 210px;-ms-transform: scale(0) rotate(45deg);opacity: 0 }
+        }
+        @keyframes  inhale-3{
+            0%{transform: scale(1) rotate(0deg);opacity: 1}
+            20%{transform:scale(0.8) rotate(-20deg)}
+            40%{transform:scale(0.6) rotate(20deg)}
+            60%{transform:scale(0.4) rotate(-20deg)}
+            80%{opacity: 0.8;transform: scale(0.2) rotate(0deg)}
+            100%{right: 125px;top: 290px;transform: scale(0) rotate(45deg);opacity: 0 }
+        }
+        @-webkit-keyframes inhale-3 {
+            0%{-webkit-transform: scale(1) rotate(0deg);opacity: 1}
+            20%{-webkit-transform:scale(0.8) rotate(-20deg)}
+            40%{-webkit-transform:scale(0.6) rotate(20deg)}
+            60%{-webkit-transform:scale(0.4) rotate(-20deg)}
+            80%{opacity: 0.8;-webkit-transform: scale(0.2) rotate(0deg)}
+            100%{right: 125px;top: 290px;-webkit-transform: scale(0) rotate(45deg);opacity: 0 }
+        }
+        @-moz-keyframes inhale-3 {
+            0%{-moz-transform: scale(1) rotate(0deg);opacity: 1}
+            20%{-moz-transform:scale(0.8) rotate(-20deg)}
+            40%{-moz-transform:scale(0.6) rotate(20deg)}
+            60%{-moz-transform:scale(0.4) rotate(-20deg)}
+            80%{opacity: 0.8;-moz-transform: scale(0.2) rotate(0deg)}
+            100%{right: 125px;top: 290px;-moz-transform: scale(0) rotate(45deg);opacity: 0 }
+        }
+        @-o-keyframes inhale-3 {
+            0%{-o-transform: scale(1) rotate(0deg);opacity: 1}
+            20%{-o-transform:scale(0.8) rotate(-20deg)}
+            40%{-o-transform:scale(0.6) rotate(20deg)}
+            60%{-o-transform:scale(0.4) rotate(-20deg)}
+            80%{opacity: 0.8;-o-transform: scale(0.2) rotate(0deg)}
+            100%{right: 125px;top: 290px;-o-transform: scale(0) rotate(45deg);opacity: 0 }
+        }
+        @-ms-keyframes inhale-3 {
+            0%{-ms-transform: scale(1) rotate(0deg);opacity: 1}
+            20%{-ms-transform:scale(0.8) rotate(-20deg)}
+            40%{-ms-transform:scale(0.6) rotate(20deg)}
+            60%{-ms-transform:scale(0.4) rotate(-20deg)}
+            80%{opacity: 0.8;-ms-transform: scale(0.2) rotate(0deg)}
+            100%{right: 125px;top: 290px;-ms-transform: scale(0) rotate(45deg);opacity: 0 }
+        }
+    </style>
+</head>
+<body>
+<div class="wb-x-wrap">
+    <!--header start-->
+    <div class="wsh-header">
+        <div class="wsh-ct">
+            <a class="wsh-logo" href="#" title="网商银行" seed="">
+                <img src="https://img.alicdn.com/tps/TB1gjHlMVXXXXa4XVXXXXXXXXXX-280-68.png" width="280" height="68" alt="logo"/>
+            </a>
+            <img class="wsh-timeline" src="https://img.alicdn.com/tps/TB1FxF9NVXXXXbVapXXXXXXXXXX-501-68.png" width="501" height="68" alt="时间轴"/>
+            <div class="wsh-cwn">
+                <a class="wsh-follow" id="addFavorite" rel="sidebar"></a>
+                <div class="wsh-countdown" id="clockbox"  data-endTime="2016/11/15 23:59:59" data-day="0">
+                    <span class="wsh_day j_day"></span>
+                    <span class="wsh_hour j_hour"></span>
+                    <span class="wsh_minute j_minute"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--header end-->
+    <!--nav start (nav-btn2 为按钮已点亮状态)-->
+    <div class="wsh-nav">
+        <img src="https://img.alicdn.com/tps/TB1DDBQNVXXXXa8apXXXXXXXXXX-131-253.png" width="131" height="253"/>
+        <a href="javascript:;" target="_blank" class="nav-btn nav-btn1"></a>
+    </div>
+    <!--nav start-->
+    <!--banner start-->
+    <div class="wsh-banner">
+        <div class="wsh-ct">
+            <img src="https://img.alicdn.com/tps/TB18rN6NVXXXXXDXpXXXXXXXXXX-990-401.jpg" width="990" height="401"/>
+            <div class="wsh-linebg">
+                <img src="https://img.alicdn.com/tps/TB10q42NVXXXXc6XFXXXXXXXXXX-1920-79.png" width="1920" height="79"/>
+                <img src="https://img.alicdn.com/tps/TB14.FQNVXXXXalaXXXXXXXXXXX-1920-93.png" width="1920" height="93"/>
+                <img src="https://img.alicdn.com/tps/TB1fbt0NVXXXXXJXVXXXXXXXXXX-1920-82.png" width="1920" height="82"/>
+                <img src="https://img.alicdn.com/tps/TB1NSXENVXXXXXBapXXXXXXXXXX-1920-101.png" width="1920" height="101"/>
+                <img src="https://img.alicdn.com/tps/TB1GrecNVXXXXXCXpXXXXXXXXXX-1920-108.png" width="1920" height="108"/>
+            </div>
+            <div class="wsh-orders">
+                <img src="https://img.alicdn.com/tps/TB16lqzNVXXXXaDXpXXXXXXXXXX-64-19.png" width="64" height="19" class="order wsh-od1"/>
+                <img src="https://img.alicdn.com/tps/TB1F3J4NVXXXXbUapXXXXXXXXXX-36-13.png" width="36" height="13" class="order wsh-od2"/>
+                <img src="https://img.alicdn.com/tps/TB1IPucNVXXXXcpXVXXXXXXXXXX-28-82.png" width="28" height="82" class="order wsh-od3"/>
+                <img src="https://img.alicdn.com/tps/TB1Z6enNVXXXXcvXFXXXXXXXXXX-30-37.png" width="30" height="37" class="order wsh-od4"/>
+                <img src="https://img.alicdn.com/tps/TB1tQ1rNVXXXXXtXFXXXXXXXXXX-26-31.png" width="26" height="31" class="order wsh-od5"/>
+                <img src="https://img.alicdn.com/tps/TB16TCjNVXXXXcmXFXXXXXXXXXX-26-30.png" width="26" height="30" class="order wsh-od6"/>
+                <img src="https://img.alicdn.com/tps/TB1qniaNVXXXXbSaXXXXXXXXXXX-26-31.png" width="26" height="31" class="order wsh-od7"/>
+                <img src="https://img.alicdn.com/tps/TB1LLCqNVXXXXblXFXXXXXXXXXX-65-19.png" width="65" height="19" class="order wsh-od8"/>
+                <img src="https://img.alicdn.com/tps/TB1mY06NVXXXXXfapXXXXXXXXXX-26-30.png" width="26" height="30" class="order wsh-od9"/>
+                <img src="https://img.alicdn.com/tps/TB1j6eyNVXXXXapXpXXXXXXXXXX-61-43.png" width="61" height="43" class="order wsh-od10"/>
+                <img src="https://img.alicdn.com/tps/TB1t0eoNVXXXXcFXFXXXXXXXXXX-22-27.png" width="22" height="27" class="order wsh-od11"/>
+                <img src="https://img.alicdn.com/tps/TB1IcmbNVXXXXaUaXXXXXXXXXXX-41-25.png" width="41" height="25" class="order wsh-od12"/>
+                <img src="https://img.alicdn.com/tps/TB1F3J4NVXXXXbUapXXXXXXXXXX-36-13.png" width="36" height="13" class="order wsh-od14"/>
+                <img src="https://img.alicdn.com/tps/TB1IPucNVXXXXcpXVXXXXXXXXXX-28-82.png" width="28" height="82" class="order wsh-od15"/>
+                <img src="https://img.alicdn.com/tps/TB1Z6enNVXXXXcvXFXXXXXXXXXX-30-37.png" width="30" height="37" class="order wsh-od16"/>
+                <img src="https://img.alicdn.com/tps/TB1tQ1rNVXXXXXtXFXXXXXXXXXX-26-31.png" width="26" height="31" class="order wsh-od17"/>
+                <img src="https://img.alicdn.com/tps/TB16lqzNVXXXXaDXpXXXXXXXXXX-64-19.png" width="64" height="19" class="order wsh-od18"/>
+                <img src="https://img.alicdn.com/tps/TB1F3J4NVXXXXbUapXXXXXXXXXX-36-13.png" width="36" height="13" class="order wsh-od19"/>
+                <img src="https://img.alicdn.com/tps/TB1IPucNVXXXXcpXVXXXXXXXXXX-28-82.png" width="28" height="82" class="order wsh-od20"/>
+                <img src="https://img.alicdn.com/tps/TB1Z6enNVXXXXcvXFXXXXXXXXXX-30-37.png" width="30" height="37" class="order wsh-od21"/>
+                <div class="order wsh-k1">
+                    <p class="sum k1-txt">135473172</p>
+                </div>
+                <div class="order wsh-k2">
+                    <p class="sum k2-txt">135473172</p>
+                </div>
+                <div class="order wsh-k3">
+                    <p class="sum k3-txt">135473172</p>
+                </div>
+            </div>
+            <div class="wsh-fd">
+                <img src="https://img.alicdn.com/tps/TB18t40NVXXXXXkXVXXXXXXXXXX-1920-266.png" width="1920" height="266"/>
+                <img src="https://img.alicdn.com/tps/TB10cdVNVXXXXbgXVXXXXXXXXXX-1920-110.png" width="1920" height="110"/>
+                <img src="https://img.alicdn.com/tps/TB1VIN7NVXXXXcaXpXXXXXXXXXX-1920-123.png" width="1920" height="123"/>
+                <img src="https://img.alicdn.com/tps/TB1p7ecNVXXXXX7XpXXXXXXXXXX-1920-549.png" width="1920" height="549"/>
+            </div>
+        </div>
+    </div>
+    <!--banner end-->
+    <!--main start-->
+    <div class="wsh-main">
+        <div class="wsh-ct wsh-cbt">
+            <!--不准入 start-->
+            <div class="wsh-content">
+                <div class="wsh-mainbx">
+                    <p class="wsh-cant">
+                        亲，很抱歉，你不能参加本次活动 <br/>
+                        可以去贷款首页看看，会有其他发现哦
+                    </p>
+                </div>
+                <div class="wsh-btnbg1">
+                    <a href="##" target="_blank" class="wsh-btn wsh-btn1" seed="godksy"></a>
+                </div>
+            </div>
+            <!--不准入 end-->
+            <!--订单不准入淘宝 start-->
+            <div class="wsh-content">
+                <div class="wsh-msg">
+                    <p>亲，目前您还不能使用提前收款服务。试试定活宝吧，让订单货款钱生钱</p>
+                </div>
+                <div class="wsh-mainbx wsh-mainbx2">
+                    <div class="wsh-card1">
+                        <div class="card-tit">随意存</div>
+                        <div class="card-time">14-60天任你选</div>
+                        <div class="card-zgl">
+                            最高
+                            <p>3.32%</p>
+                        </div>
+                        <div class="card-lyd clearfix">
+                            <div class="card-ly">
+                                <img src="https://img.alicdn.com/tps/TB1tqetNVXXXXXKXXXXXXXXXXXX-59-58.png" width="59" height="58"/>
+                                <p>存款零风险</p>
+                            </div>
+                            <div class="card-ly">
+                                <img src="https://img.alicdn.com/tps/TB1o.1lNVXXXXciXXXXXXXXXXXX-59-58.png" width="59" height="58"/>
+                                <p>收益稳定</p>
+                            </div>
+                        </div>
+                        <a href="##" target="_blank" seed="dhb-cq" class="wsh-btn wsh-btn2"></a>
+                    </div>
+                    <img src="https://img.alicdn.com/tps/TB11aCXNVXXXXbAXFXXXXXXXXXX-324-324.jpg" width="324" height="324" class="wsh-ewm"/>
+                </div>
+            </div>
+            <!--订单不准入淘宝 end-->
+            <!--订单不准入天猫 start-->
+            <div class="wsh-content">
+                <div class="wsh-msg">
+                    <p>亲，目前您还不能使用提前收款服务。试试定活宝吧，让订单货款钱生钱</p>
+                </div>
+                <div class="wsh-mainbx wsh-mainbx2 clearfix">
+                    <div class="wsh-card2 f-left">
+                        <div class="card-tit card-tit2">余利宝</div>
+                        <div class="card-txt">
+                            商家的大额灵活理财产品<br/>
+                            已在天猫、企业支付宝、千牛多渠道上线
+                        </div>
+                        <a href="##" target="_blank" seed="ylb-cq" class="wsh-btn wsh-btn3"></a>
+                    </div>
+                    <div class="wsh-ylb f-left">
+                        <div class="ylb-tit">余利宝的优点</div>
+                        <div class="ylb-lyd">
+                            <img src="https://img.alicdn.com/tps/TB1X3mXNVXXXXbzXFXXXXXXXXXX-338-188.png" width="338" height="188" alt=""/>
+                        </div>
+                        <div class="ylb-ly ylb-ly1">
+                            <p>安全</p>
+                            货币型基金，低风险，<br/>
+                            网商银行官方出品
+                        </div>
+                        <div class="ylb-ly ylb-ly2">
+                            <p>灵活</p>
+                            1元起购，自动理财
+                        </div>
+                        <div class="ylb-ly ylb-ly3">
+                            <p>大额</p>
+                            单户转入1000万，<br/>
+                            实时转出500万
+                        </div>
+                        <div class="ylb-ly ylb-ly4">
+                            <p>收益</p>
+                            2-3%年化收益
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--订单不准入天猫 end-->
+            <!--老客户 start-->
+            <div class="wsh-content">
+                <div class="wsh-mainbx">
+                    <div class="wsh-ware m-center">
+                        <img src="https://img.alicdn.com/tps/TB15heyNVXXXXXpXXXXXXXXXXXX-361-230.png" width="360" height="230"/>
+                        <div class="ware-tit">收获季大礼</div>
+                        <div class="ware-txt">成功支用一笔提前收款，即可参与抽奖</div>
+                    </div>
+                </div>
+                <div class="wsh-btnbg2">
+                    <form><input type="button" value="" class="wsh-btn wsh-btn4"></form>
+                </div>
+            </div>
+            <!--老客户 end-->
+            <!--流失客户 start-->
+            <div class="wsh-content">
+                <div class="wsh-mainbx">
+                    <div class="ware-bx clearfix">
+                        <div class="wsh-ware f-left">
+                            <img src="https://img.alicdn.com/tps/TB1asqmNVXXXXasXpXXXXXXXXXX-360-230.png" width="360" height="230"/>
+                            <div class="ware-txt">成功支用一笔提前收款即送</div>
+                        </div>
+                        <div class="wsh-ware f-left">
+                            <img src="https://img.alicdn.com/tps/TB1hlmqNVXXXXcaXXXXXXXXXXXX-360-230.png" width="360" height="230"/>
+                            <div class="ware-txt">成功支用一笔提前收款，即可参与抽奖</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wsh-btnbg2">
+                    <form><input type="button" value="" class="wsh-btn wsh-btn4"></form>
+                </div>
+            </div>
+            <!--流失客户 end-->
+            <!--新客户 start-->
+            <div class="wsh-content">
+                <div class="wsh-mainbx">
+                    <div class="ware-bx clearfix">
+                        <div class="wsh-ware f-left">
+                            <img src="https://img.alicdn.com/tps/TB1rkt0NVXXXXXHaXXXXXXXXXXX-360-230.png" width="360" height="230"/>
+                            <div class="ware-txt">首次支用即可享受首笔免费</div>
+                        </div>
+                        <div class="wsh-ware f-left">
+                            <img src="https://img.alicdn.com/tps/TB1hlmqNVXXXXcaXXXXXXXXXXXX-360-230.png" width="360" height="230"/>
+                            <div class="ware-txt">成功支用一笔提前收款，即可参与抽奖</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wsh-btnbg2">
+                    <form><input type="button" value="" class="wsh-btn wsh-btn4"></form>
+                </div>
+            </div>
+            <!--新客户 end-->
+            <a href="javascript:;" class="wsh-rule"><img src="https://img.alicdn.com/tps/TB10vanNVXXXXXWXXXXXXXXXXXX-93-19.png" width="93" height="19"/></a>
+        </div>
+    </div>
+    <!--main end-->
+    <!--foot start-->
+    <div class="foot-wrap">
+        <div class="foot-content">
+            <img src="https://img.alicdn.com/tps/TB1LOdINpXXXXXuapXXXXXXXXXX-990-50.png" width="990" height="50"/>
+        </div>
+    </div>
+    <!--foot end-->
+    <!--弹窗蒙层-->
+    <div class="pop-mask"></div>
+    <!--弹窗蒙层-->
+    <!--规则弹窗-->
+    <div class="rule-pop J_pop">
+        <div class="rule-text">
+            <img src="https://img.alicdn.com/tps/TB1vnsnMVXXXXbbXXXXXXXXXXXX-16-16.png" width="16" height="16" class="rule-close-img"/>
+            <div class="pop-close J_popClose"></div>
+            <div class="rule-tit">活动规则</div>
+            <ul class="rule-list">
+                <li class="detail"><span class="detail-tit">活动时间：</span><p>2016年11月12日09:00:00 -11月15日23:59:59。</p></li>
+                <li class="detail"><span class="detail-tit">活动对象：</span><p>具有订单类贷款申请资格的卖家\天猫卖家。</p></li>
+                <li class="detail"><span class="detail-tit">活动参与方式：</span><p>活动期间，具有订单类贷款申请资格的卖家在各个客户端(淘宝贷款\天猫贷款PC网站、千牛、支付宝钱包、手淘、网商银行APP)活动页面点击“立即支用”按钮进行提前收款申请且成功获得提前收款资金，即可享受对应活动页面显示的优惠。</p></li>
+                <li class="detail"><span class="detail-tit">活动优惠及发放：</span>
+                    <ul class="detail-list">
+                        <li>您获得的提前收款卡，在使用有效期内可免除与面值相等的提前收款金额所产生的提前收款服务费。</li>
+                        <li>提前收款卡将于活动结束后三个工作日内发放。</li>
+                        <li>活动期间，在淘宝贷款\天猫贷款PC网站、千牛、支付宝钱包、手机淘宝App支用的卖家或在多渠道支用的卖家，提前收款卡发放至淘宝贷款\天猫贷款PC网站，请于PC网站使用。在网商银行App支用的卖家，提前收款卡发放至至网商银行App，仅限于在网商银行App中使用。</li>
+                        <li>中奖名单查询：XXX</li>
+                    </ul>
+                </li>
+                <li class="detail"><span class="detail-tit">其他规则：</span>
+                    <ul class="detail-list">
+                        <li class="clearfix"><span>1）</span><em>提前收款卡使用有效期截止2016年11月30日。</em></li>
+                        <li class="clearfix"><span>2）</span><em>淘宝网和天猫卖家成功获贷的金额以贷款实际发放的金额为准。</em></li>
+                        <li class="clearfix"><span>3）</span><em>淘宝网和天猫卖家成功获得的优惠以贷款实际签订合同的内容为准。</em></li>
+                        <li class="clearfix"><span>4）</span><em>本活动优惠仅限通过本活动页面参与有效，且与其他折扣优惠不能同时使用。</em></li>
+                        <li class="clearfix"><span>5）</span><em>活动过程中如发现有碍于其他卖家公平参与本活动或违反本活动目的之行为，网商银行&蚂蚁小贷有权取消有此行为的卖家参加本活动的资格或因参加活动所获的优惠。</em></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--规则弹窗-->
+</div>
+<script>
+    window._to = {
+        st: Date.now(),
+        role_id: '',
+    };
+</script>
+<script src="https://as.alipayobjects.com/g/animajs/mtracker/2.1.2/??seed.js,mtracker.js"></script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.7.2/jquery.js"></script>
+<script>
+    (function(jQuery){
+        //倒计时
+        var countDown ={
+            config:{
+                timer:0
+            },
+            init:function(){
+                var _this = this;
+                _this.config.timer;
+                _this.nowTime();
+            },
+            nowTime:function(){
+                //获取当前时间
+                var _this = this;
+
+                var _nowTime;
+
+                timer = setInterval(function(){
+                    //直接获取了本地时间，上次的时间接口不能用了
+                    _nowTime = new Date();
+                    _this.getTime(_nowTime)
+                },1000);
+
+            },
+            getTime:function(nowTime){
+                var _this = this;
+                jQuery('.wsh-countdown').each(function (i,e){
+
+                    var _endTime = jQuery(e).attr('data-endTime');
+
+                    var endTime = new Date(_endTime);
+
+                    var timeDiff = endTime - nowTime;
+
+                    var odf = timeDiff + 1000;
+
+                    var _d,_h,_m,_s;//当前的时间
+                    var _od =0 ,_oh = 0 ,_om = 0 ,_os = 0;//上一秒的时间
+
+                    if(timeDiff <=0){
+                        timeDiff = 0;
+                        odf = 0;
+                        _d = 0;
+                        _h = 0;
+                        _m = 0;
+                        _s = 0;
+                        clearInterval(timer);
+
+                    }else{
+                        _d = Math.floor(timeDiff / 1000 / 60 / 60 / 24);
+                        _h = Math.floor(timeDiff / 1000 / 60 / 60 % 24);
+                        _m = Math.floor(timeDiff / 1000 / 60 % 60);
+                        _s = Math.floor(timeDiff / 1000 % 60);
+
+                        _od = Math.floor(odf / 1000 / 60 / 60 / 24);
+                        _oh = Math.floor(odf / 1000 / 60 / 60 % 24);
+                        _om = Math.floor(odf / 1000 / 60 % 60);
+                        _os = Math.floor(odf / 1000 % 60);
+                    }
+
+                    if(_d === 0 && _s !== 0){
+                        _this.effect(_d,_od,jQuery(e).find('.j_day'));
+                        _this.effect(_h,_oh,jQuery(e).find('.j_hour'));
+                        _this.effect(_m,_om,jQuery(e).find('.j_minute'));
+                        _this.effect(_s,_os,jQuery(e).find('.j_second'));
+                    }else{
+                        _this.effect(_d,_od,jQuery(e).find('.j_day'));
+                        _this.effect(_h,_oh,jQuery(e).find('.j_hour'));
+                        _this.effect(_m,_om,jQuery(e).find('.j_minute'));
+                        _this.effect(_s,_os,jQuery(e).find('.j_second'));
+                    }
+                });
+            },
+            effect:function(ele,oele,node){
+
+                var _this = this;
+                var ten,single;
+                var oten,osingle;
+
+                if(ele >= 10){
+                    ten = Math.floor(ele / 10);
+                    single = Math.floor(ele % 10);
+                }else{
+                    ten = 0;
+                    single = ele;
+                }
+
+                if(oele >= 10){
+                    oten = Math.floor(oele / 10);
+                    osingle = Math.floor(oele % 10);
+                }else{
+                    oten = 0;
+                    osingle = oele;
+                }
+
+
+                var timeHtml =  '<span class="ct"><em class="dig prevt"></em><em class="dig currt"></em></span><span class="cs"><em class="dig prevs"></em><em class="dig currs"></em></span>';
+                node.html(timeHtml);
+
+                node.find('.prevt').html(ten);
+                node.find('.currt').html(oten);
+                node.find('.prevs').html(single);
+                node.find('.currs').html(osingle);
+
+                if(ten == oten){
+                    node.find('.currt').parent('.ct').removeClass('slide-wrap');
+                }else{
+                    node.find('.currt').parent('.ct').addClass('slide-wrap');
+
+                    node.css({'height': 22+'px'});
+                    node.find('.slide-wrap').css('top',5 +'px').animate({top: 22+'px'},500);
+                }
+                if(single == osingle){
+                    node.find('.currs').parent('.cs').removeClass('slide-wrap');
+                }else{
+                    node.find('.currs').parent('.cs').addClass('slide-wrap');
+
+                    node.css({'height': 22+'px'});
+                    node.find('.slide-wrap').css('top',5 +'px').animate({top: 22+'px'},500);
+                }
+
+            }
+        };
+        countDown.init();
+        //收藏
+        var follow = function(){
+            var url=location.href;
+            jQuery("#addFavorite").attr("href",url);
+            document.getElementById("addFavorite").onclick=function(){
+                bookmark();
+                return false;
+            };
+            function bookmark(){
+                var title = document.title;
+                var url = location.href;
+                var bro=jQuery.browser;
+                console.log(title);
+                console.log(url);
+                if(window.sidebar){
+                    window.sidebar.addPanel(title,url,"");
+                }
+                else if(bro.msie){
+                    window.external.AddFavorite(url,title);
+                }else {
+                    alert("您的浏览器不支持此功能，windows系统请按ctrl+D，Mac系统请按Cmd+D来加入收藏夹！");
+                }
+            }
+        }();
+        //弹窗
+        jQuery('.J_popClose').on('click',function(){
+            jQuery('.J_pop').hide();
+            jQuery('.pop-mask').hide();
+        });
+        jQuery('.wsh-rule').on('click',function(){
+            jQuery('.rule-pop').show();
+            jQuery('.pop-mask').show();
+            window.scrollTo(0,0);
+        });
+        //        数字增加效果
+        function grow(){
+            var res = parseInt(jQuery('.sum').html());
+            if(res > 994985020){
+                res = 135473172;
+            }
+            res +=3872123;
+            jQuery('.sum').html(res);
+        }
+        setInterval(function(){grow()},50)
+    })(jQuery);
+</script>
+</body>
+</html>
