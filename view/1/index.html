@@ -86,7 +86,6 @@
         .foot-wrap {
             background-color: #01a0bc;
             min-width: 990px;
-            font-family:STHeitiSC-Light;
             z-index: 889;
             height: 50px;
             border-top: 1px solid #007485;
@@ -94,6 +93,10 @@
         .foot-content {
             width: 990px;
             margin: 0 auto;
+            text-align: center;
+            line-height: 50px;
+            font-size: 12px;
+            color: #333333;
         }
         /*banner*/
         .wsh-banner{
@@ -149,31 +152,6 @@
         }
         .wsh-timeline{
             padding:21px 0 0 137px;
-        }
-        .wsh-time{
-            font-size: 18px;
-            height: 30px;
-            line-height: 30px;
-            width: 360px;
-            text-align: center;
-            background: #f7a716;
-            border-radius: 50px;
-            color: #fff;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            font-style: italic;
-        }
-        .wsh-time2{
-            width: 210px;
-        }
-        .wsh-arrow{
-            font-size: 30px;
-            font-weight: bold;
-            line-height: 25px;
-            height: 30px;
-            color: #fff;
-            text-align: center;
-            width: 110px;
         }
         .wsh-spimg{
             margin: 41px 0 0 21px;
@@ -438,9 +416,31 @@
             float: left;
             text-align: justify;
         }
+        .wsh-poptxt1{
+            position: absolute;
+            top: 337px;
+            left: 0;
+            font-size: 24px;
+            color: #00a2ac;
+            line-height: 1.5em;
+            width: 100%;
+            text-align: center;
+            letter-spacing: 0.1em;
+        }
+        .wsh-poptxt2{
+            position: absolute;
+            top: 380px;
+            left: 0;
+            font-size: 20px;
+            color: #383838;
+            line-height: 1.5em;
+            width: 100%;
+            text-align: center;
+            letter-spacing: 0.1em;
+        }
     </style>
 </head>
-<body>
+<body style="background-color: #01a0bc">
 <div class="wb-x-wrap">
     <!--head start-->
     <div class="wsh-header">
@@ -617,30 +617,21 @@
     <!--foot start-->
     <div class="foot-wrap">
         <div class="foot-content">
-            <img  lazy-src="https://img.alicdn.com/tps/TB11zpdOpXXXXXQaXXXXXXXXXXX-990-50.png" width="990" height="50"/>
+            浙ICP备15020822号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copyright © 2015-2016 浙江网商银行
         </div>
     </div>
     <!--foot end-->
     <!--弹窗蒙层-->
     <div class="pop-mask"></div>
     <!--弹窗蒙层-->
-    <!--活动未开始-->
+    <!--弹窗-->
     <div class="pop J_pop pop1">
         <div class="pop-close J_popClose"></div>
-        <img  lazy-src="https://img.alicdn.com/tps/TB1ZGcKOXXXXXXOaFXXXXXXXXXX-561-441.png" width="561" height="441"/>
+        <img src="https://img.alicdn.com/tps/TB1v2M5OXXXXXcvapXXXXXXXXXX-561-441.png" width="561" height="441"/>
+        <div class="wsh-poptxt1">很抱歉，你不能参与本次活动</div>
+        <div class="wsh-poptxt2">非常感谢你的支持</div>
     </div>
-    <!--活动未开始-->
-    <!--不准入-->
-    <div class="pop J_pop pop2">
-        <div class="pop-close J_popClose"></div>
-        <img  lazy-src="https://img.alicdn.com/tps/TB1u5w4OXXXXXbUXVXXXXXXXXXX-561-441.png" width="561" height="441"/>
-    </div>
-    <!--不准入-->
-    <!--活动结束-->
-    <div class="pop J_pop pop3">
-        <div class="pop-close J_popClose"></div>
-        <img  lazy-src="https://img.alicdn.com/tps/TB1rgc8OXXXXXbvXVXXXXXXXXXX-561-441.png" width="561" height="441"/>
-    </div>
+    <!--弹窗-->
     <!--活动结束-->
     <!--规则弹窗-->
     <div class="rule-pop J_pop">
