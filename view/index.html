@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <title>网商银行</title>
+    <style>
+        html,body,div,p,h1,h2,h3,a,img,ul,li,span,em,i,dd,dl{padding:0;margin:0;}
+        html,body{overflow-x:hidden;}
+        .wb-x-wrap{
+            width:100%;
+            height:auto;
+            font-size:14px;
+            font-family:"Microsoft YaHei",Helvetica,PingFang,Hiragino Sans,\\5FAE\8F6F\96C5\9ED1,Arial,sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow:hidden;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            background: url("about:blank");
+            position: relative;
+        }
+        img{
+            border:0;
+            vertical-align:top;
+        }
+        ul,li{
+            list-style:none;
+        }
+        em,i{
+            font-style:normal;
+        }
+        body{
+            background: #f8f8f8;
+        }
+        .clearfix:after{
+            content:'';
+            display:block;
+            visibility:hidden;
+            height:0;
+            clear:both;
+        }
+        .clearfix{
+            *zoom:1;
+        }
+        .f-left{
+            float:left;
+        }
+        .f-center{
+            margin:  0 auto;
+        }
+        .f-right{
+            float:right;
+        }
+        .wsh-header{
+            width:100%;
+            background: #eeeeee;
+            position: fixed;
+            left:0;
+            top:0;
+            z-index:988;
+        }
+        .wsh-ct{
+            width:990px;
+            margin:0 auto;
+            position:relative;
+        }
+        .wsh-logo{
+            display:block;
+            width:215px;
+            height:49px;
+        }
+        .wsh-follow{
+            position:absolute;
+            top:0;
+            right:17px;
+            width:108px;
+            height:49px;
+            display:block;
+            background:url("https://img.alicdn.com/tps/TB1_jQ2OXXXXXauXXXXXXXXXXXX-108-49.png") no-repeat top left;
+            cursor:pointer;
+        }
+        /*public-foot*/
+        .foot-wrap {
+            background-color: #eeeeee;
+            min-width: 990px;
+            font-family:STHeitiSC-Light;
+            z-index: 889;
+            height: 50px;
+        }
+        .foot-content {
+            width: 990px;
+            margin: 0 auto;
+        }
+        /*banner*/
+        .wsh-banner{
+            background: url("https://img.alicdn.com/tps/TB1ExkvOXXXXXX0aXXXXXXXXXXX-1920-493.jpg") top center no-repeat;
+        }
+        .wsh-ball{
+            position: absolute;
+            top: 0;
+            left: -432px;
+            z-index: 3;
+        }
+        .wsh-other{
+            position: absolute;
+            top: 73px;
+            left: 104px;
+            z-index: 5;
+        }
+        .wsh-people{
+            position: absolute;
+            top: 105px;
+            left: 127px;
+            z-index: 4;
+        }
+        .wsh-zi{
+            position: absolute;
+            top: 165px;
+            left: 280px;
+            z-index: 6;
+        }
+        .wsh-yg{
+            position: absolute;
+            top: 126px;
+            left: 292px;
+            z-index: 6;
+        }
+        /*main*/
+        .wsh-main{
+            background: url("https://img.alicdn.com/tps/TB1K.oxOXXXXXcVXVXXXXXXXXXX-1920-1177.jpg") top center no-repeat;
+            min-height: 436px;
+        }
+        .wsh-cbt{
+            padding-bottom: 40px;
+        }
+        .wsh-content{
+            position: relative;
+            padding: 1px;
+            z-index: 7;
+        }
+        .wsh-mainbx{
+            width: 990px;
+            height: 1068px;
+            background: url("https://img.alicdn.com/tps/TB1UegwOXXXXXaXaFXXXXXXXXXX-990-1068.png") top center no-repeat;
+        }
+        .wsh-timeline{
+            padding:21px 0 0 137px;
+        }
+        .wsh-time{
+            font-size: 18px;
+            height: 30px;
+            line-height: 30px;
+            width: 360px;
+            text-align: center;
+            background: #f7a716;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            font-style: italic;
+        }
+        .wsh-time2{
+            width: 210px;
+        }
+        .wsh-arrow{
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 25px;
+            height: 30px;
+            color: #fff;
+            text-align: center;
+            width: 110px;
+        }
+        .wsh-spimg{
+            margin: 41px 0 0 21px;
+        }
+        .wsh-txtbx{
+            margin:25px 0 0 75px;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+        }
+        .wsh-txtbx li{
+            margin-bottom: 40px;
+            width: 855px;
+            font-size: 18px;
+        }
+        .wsh-tit{
+            font-size: 28px;
+            line-height: 1.5em;
+            font-weight: bold;
+        }
+        .wsh-step{
+            line-height: 1.5em;
+            font-size: 24px;
+            font-weight: bolder;
+            margin-bottom: 10px;
+        }
+        .wsh-steptxt{
+            line-height: 1.8em;
+        }
+        .wsh-stepimg{
+            width: 758px;
+            margin: 34px 0 0 42px;
+        }
+        .wsh-stepbx{
+            padding: 12px 0 45px 0;
+        }
+        .wsh-stepbx li{
+            float: left;
+        }
+        .wsh-stepbx .wsh-one{
+            width: 217px;
+        }
+        .wsh-stepbx .wsh-two{
+            width: 287px;
+        }
+        .wsh-stepbx .wsh-three{
+            width: 216px;
+        }
+        .wsh-stepbx .wsh-four{
+            width: 126px;
+        }
+        .wsh-ts{
+            margin: 0 10px 10px 0;
+        }
+        .wsh-showbx{
+            position: relative;
+            width: 990px;
+            height: 317px;
+            border-radius: 3px;
+            background:url("https://img.alicdn.com/tps/TB1shEDOXXXXXbgaXXXXXXXXXXX-996-317.png") no-repeat top center;
+            overflow: hidden;
+        }
+        .wsh-bx{
+            width: 469px;
+            padding-top: 20px;
+        }
+        .wsh-btn{
+            position: absolute;
+            top: 219px;
+            left: 314px;
+            width: 370px;
+            height: 66px;
+            background: url("https://img.alicdn.com/tps/TB1mt7zOXXXXXcnapXXXXXXXXXX-370-132.png") no-repeat top center;
+        }
+        .wsh-btn:hover{
+            background-position: 0 -66px;
+        }
+        .wsh-hdlc{
+            width: 990px;
+            height: 300px;
+            background: url("https://img.alicdn.com/tps/TB1gKUSOXXXXXaLXVXXXXXXXXXX-990-300.png") no-repeat;
+            margin-top: 30px;
+        }
+        .wsh-hdtit{
+            width: 990px;
+            text-align: center;
+            font-size: 28px;
+            line-height: 80px;
+            font-weight: bolder;
+            color: #ffffff;
+        }
+        .wsh-lcimg{
+            margin: 69px 0 0 124px;
+        }
+        .wsh-stepbx2{
+            padding-top: 15px;
+            font-size: 18px;
+            line-height: 1.8em;
+            color: #ffffff;
+        }
+        .wsh-stepbx2 li{
+            float: left;
+        }
+        .wsh-stepbx2 .wsh-fir{
+            margin-left: 88px;
+            width: 348px;
+        }
+        .wsh-stepbx2 .wsh-sec{
+            width: 358px;
+        }
+        .wsh-stepbx2 .wsh-thr{
+            width: 195px;
+        }
+        .wsh-bx2{
+            width: 814px;
+            padding-top: 30px;
+        }
+        .wsh-wt{
+            padding-top: 30px;
+            display: block;
+            width: 432px;
+            margin: 0 auto;
+        }
+        .wsh-tmbx{
+            margin-top: 25px;
+            width: 990px;
+            height: 510px;
+            background: #00889c;
+            border-radius: 5px;
+        }
+        .wsh-tmtit{
+            width: 990px;
+            border-radius: 5px;
+            height: 80px;
+            line-height: 80px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            text-align: center;
+            background: #007485;
+            letter-spacing: 0.1em;
+        }
+        .wsh-tmtit span{
+            color: #fa6a24;
+        }
+        .wsh-tmbx .wsh-ts{
+            margin: 34px 0 15px 97px;
+        }
+        .wsh-tmtxt{
+            font-size: 18px;
+            line-height: 1.8em;
+            width: 810px;
+            margin-left: 97px;
+            color: #ffffff;
+        }
+        .wsh-tmbx .wsh-lcimg{
+            margin: 39px 0 0 177px;
+        }
+        .wsh-tmbx .wsh-fir{
+            width: 336px;
+        }
+        .wsh-tmbx .wsh-sec{
+            width: 289px;
+        }
+        .wsh-tmbx .wsh-thr{
+            width: 200px;
+        }
+        .wsh-tmbx span{
+            color: #f7a716;
+            font-weight: bold;
+        }
+        .wsh-tmbx em{
+            font-weight: 500;
+        }
+        .wsh-rule{
+            width: 94px;
+            font-size: 18px;
+            color: #fff;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        .pop-mask{
+            position:fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: .85;
+            display: none;
+            z-index: 888;
+            filter:alpha(opacity=85);
+        }
+        .pop{
+            position: fixed;
+            width: 561px;
+            height: 441px;
+            left: 50%;
+            top: 20%;
+            margin-left: -280px;
+            z-index: 1000;
+            display: none;
+        }
+        .pop-close{
+            width: 47px;
+            height: 42px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .rule-pop{
+            width: 990px;
+            min-height: 50px;
+            z-index: 999;
+            position: absolute;
+            left: 50%;
+            top: 123px;
+            margin-left: -495px;
+            color: #fff;
+            display: none;
+        }
+        .rule-pop .pop-close{
+            position: absolute;
+            top: 26px;
+            right: -3px;
+        }
+        .rule-close-img{
+            position: absolute;
+            right: 10px;
+            top: 40px;
+        }
+        .rule-text{
+            margin-top: 30px;
+        }
+        .rule-tit{
+            width: 990px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .rule-list{
+            padding-top: 25px;
+            font-size: 14px;
+        }
+        .detail{
+            padding-bottom: 25px;
+            width: 879px;
+        }
+        .detail-tit{
+            font-size: 16px;font-weight: bold;
+        }
+        .detail-list li{
+            width: 879px;
+        }
+        .detail-list li span{
+            display: block;
+            float: left;
+        }
+        .detail-list li em{
+            width: 855px;
+            display: block;
+            float: left;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+<div class="wb-x-wrap">
+    <!--head start-->
+    <div class="wsh-header">
+        <div class="wsh-ct">
+            <a class="wsh-logo" href="#" title="网商银行" seed="">
+                <img src="https://img.alicdn.com/tps/TB1sK3yOXXXXXXGaXXXXXXXXXXX-215-49.png" width="215" height="49" alt="logo"/>
+            </a>
+            <a class="wsh-follow" id="addFavorite" rel="sidebar"></a>
+        </div>
+    </div>
+    <!--head end-->
+    <!--banner start-->
+    <div class="wsh-banner">
+        <div class="wsh-ct">
+            <img src="https://img.alicdn.com/tps/TB1ZzZqOXXXXXaZapXXXXXXXXXX-990-493.jpg" width="990" height="493"/>
+            <img src="https://img.alicdn.com/tps/TB12BgnOXXXXXcoapXXXXXXXXXX-1733-598.png" width="1733" height="598" class="wsh-ball"/>
+            <img src="https://img.alicdn.com/tps/TB1buk2OXXXXXaoXXXXXXXXXXXX-776-391.png" width="776" height="391" class="wsh-people"/>
+            <img src="https://img.alicdn.com/tps/TB1q1.MOXXXXXcLXpXXXXXXXXXX-784-402.png" width="784" height="402" class="wsh-other"/>
+            <img src="https://img.alicdn.com/tps/TB1ZOonOXXXXXcHapXXXXXXXXXX-407-306.png" width="407" height="306" class="wsh-zi"/>
+            <img src="https://img.alicdn.com/tps/TB1.qZLOXXXXXXzaXXXXXXXXXXX-87-50.png" width="87" height="50" class="wsh-yg"/>
+        </div>
+    </div>
+    <!--banner end-->
+    <!--main start-->
+    <div class="wsh-main">
+        <div class="wsh-ct wsh-cbt">
+            <!--淘宝预热 start-->
+            <div class="wsh-content" style="display: block">
+                <div class="wsh-mainbx">
+                    <div class="wsh-timeline clearfix">
+                        <!--<div class="wsh-time wsh-time1 f-left">-->
+                            <!--12月1日-12月6日  狂享资金优惠揭幕-->
+                        <!--</div>-->
+                        <!--<div class="wsh-arrow f-left">-->
+                            <!--&gt;-->
+                        <!--</div>-->
+                        <!--<div class="wsh-time wsh-time2 f-left">-->
+                            <!--12月7日  就等你来-->
+                        <!--</div>-->
+                        <img src="https://img.alicdn.com/tps/TB1Z7kJOXXXXXcYaXXXXXXXXXXX-679-30.png" width="679" height="30" alt=""/>
+                    </div>
+                    <img src="https://img.alicdn.com/tps/TB1.FQBOXXXXXXsapXXXXXXXXXX-946-222.png" width="946" height="222" class="wsh-spimg"/>
+                    <ul class="wsh-txtbx">
+                        <li class="wsh-tit">［免息秘籍］</li>
+                        <li>
+                            <p class="wsh-step">第1步：</p>
+                            <p class="wsh-steptxt">下载并注册网商银行APP,点击"贷款",输入借款金额并点击下一步,如果系统未提示补全信息,那么你已经符合免息参与资格,请在12.7前来网商银行APP支用即可享免息!</p>
+                        </li>
+                        <li>
+                            <p class="wsh-step">第2步：</p>
+                            <p class="wsh-steptxt">按照上述步骤,如系统提示补全信息,请完成以下步骤：</p>
+                            <img src="https://img.alicdn.com/tps/TB1eIQLOXXXXXciXVXXXXXXXXXX-758-45.png" width="758" height="45" class="wsh-stepimg"/>
+                            <ul class="wsh-stepbx clearfix">
+                                <li class="wsh-one">完成身份验证</li>
+                                <li class="wsh-two">设置登录，交易密码</li>
+                                <li class="wsh-three">绑银行卡</li>
+                                <li class="wsh-four">12.7就等你来</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <img src="https://img.alicdn.com/tps/TB11_paOpXXXXaJXXXXXXXXXXXX-42-38.png" width="42" height="38" class="wsh-ts"/><span class="wsh-tit">小提示</span>
+                            <p class="wsh-steptxt">如不确定自己是否完成升级，可进入贷款输入金额并点击下一步，系统如没有提示补全信息，就已升级成功啦！</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--淘宝预热 end-->
+            <!--淘宝正式 start-->
+            <div class="wsh-content" style="display: block">
+                <div class="wsh-showbx">
+                    <div class="wsh-bx f-center">
+                        <img src="https://img.alicdn.com/tps/TB12LI2OXXXXXcPXpXXXXXXXXXX-469-178.png" width="469" height="178"/>
+                    </div>
+                    <a href="javascript:;" target="_blank" class="wsh-btn" seed="ljzyTB"></a>
+                </div>
+                <div class="wsh-hdlc">
+                    <p class="wsh-hdtit">［活动流程］</p>
+                    <img src="https://img.alicdn.com/tps/TB1KEgKOXXXXXcmaXXXXXXXXXXX-740-43.png" width="740" height="43" class="wsh-lcimg"/>
+                    <ul class="wsh-stepbx2 clearfix">
+                        <li class="wsh-fir">点击页面按钮</li>
+                        <li class="wsh-sec">选择贷款产品</li>
+                        <li class="wsh-thr">支用享优惠</li>
+                    </ul>
+                </div>
+            </div>
+            <!--淘宝正式 end-->
+            <!--天猫预热不需Q户 start-->
+            <div class="wsh-content" style="display: block">
+                <div class="wsh-showbx">
+                    <div class="wsh-timeline clearfix">
+                        <!--<div class="wsh-time wsh-time1 f-left">-->
+                        <!--12月1日-12月6日  狂享资金优惠揭幕-->
+                        <!--</div>-->
+                        <!--<div class="wsh-arrow f-left">-->
+                        <!--&gt;-->
+                        <!--</div>-->
+                        <!--<div class="wsh-time wsh-time2 f-left">-->
+                        <!--12月7日  就等你来-->
+                        <!--</div>-->
+                        <img src="https://img.alicdn.com/tps/TB1Z7kJOXXXXXcYaXXXXXXXXXXX-679-30.png" width="679" height="30" alt=""/>
+                    </div>
+                    <div class="wsh-bx2 f-center">
+                        <img src="https://img.alicdn.com/tps/TB1y9AzOXXXXXcHapXXXXXXXXXX-812-141.png" width="812" height="141" alt=""/>
+                    </div>
+                    <img src="https://img.alicdn.com/tps/TB1uC7MOXXXXXagaXXXXXXXXXXX-432-24.png" width="432" height="24" class="wsh-wt"/>
+                </div>
+            </div>
+            <!--天猫预热不需Q户 end-->
+            <!--天猫预热需Q户 start-->
+            <div class="wsh-content" style="display: block">
+                <div class="wsh-showbx">
+                    <div class="wsh-timeline clearfix">
+                        <!--<div class="wsh-time wsh-time1 f-left">-->
+                        <!--12月1日-12月6日  狂享资金优惠揭幕-->
+                        <!--</div>-->
+                        <!--<div class="wsh-arrow f-left">-->
+                        <!--&gt;-->
+                        <!--</div>-->
+                        <!--<div class="wsh-time wsh-time2 f-left">-->
+                        <!--12月7日  就等你来-->
+                        <!--</div>-->
+                        <img src="https://img.alicdn.com/tps/TB1Z7kJOXXXXXcYaXXXXXXXXXXX-679-30.png" width="679" height="30" alt=""/>
+                    </div>
+                    <div class="wsh-bx2 f-center">
+                        <img src="https://img.alicdn.com/tps/TB1y9AzOXXXXXcHapXXXXXXXXXX-812-141.png" width="812" height="141" alt=""/>
+                    </div>
+                    <img src="https://img.alicdn.com/tps/TB1uC7MOXXXXXagaXXXXXXXXXXX-432-24.png" width="432" height="24" class="wsh-wt"/>
+                </div>
+                <div class="wsh-tmbx">
+                    <div class="wsh-tmtit">
+                        ［更新企业信息 领<span>50元红包</span>］
+                    </div>
+                    <img src="https://img.alicdn.com/tps/TB11_paOpXXXXaJXXXXXXXXXXXX-42-38.png" width="42" height="38" class="wsh-ts"/>
+                    <p class="wsh-tmtxt">网商银行发现您的企业支付宝信息（法人名字、企业名称和营业执照号），有可能不是最新最准确的，为避免日后影响您使用贷款，请尽快联联系支付宝客服95188进行更新。我们将在活动结束后30天给更新完毕的卖家奖励利息红包50元。</p>
+                    <img src="https://img.alicdn.com/tps/TB1TrhfOpXXXXbLXXXXXXXXXXXX-645-43.png" width="645" height="43" class="wsh-lcimg"/>
+                    <ul class="wsh-stepbx2 clearfix">
+                        <li class="wsh-fir">
+                            拨打：<span>95188-1</span><br/>
+                            联系人工客服 <br/>
+                            进行企业支付宝信息更新
+                        </li>
+                        <li class="wsh-sec">等待信息更新成功</li>
+                        <li class="wsh-thr">
+                            得<span>50<em>元利息红包</em></span><br/>
+                            于活动结束30天后发放
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--天猫预热需Q户 end-->
+            <!--天猫正式 start-->
+            <div class="wsh-content" style="display: block">
+                <div class="wsh-showbx">
+                    <div class="wsh-bx f-center">
+                        <img src="https://img.alicdn.com/tps/TB12LI2OXXXXXcPXpXXXXXXXXXX-469-178.png" width="469" height="178"/>
+                    </div>
+                    <a href="javascript:;" target="_blank" class="wsh-btn" seed="ljzyTM"></a>
+                </div>
+                <div class="wsh-hdlc">
+                    <p class="wsh-hdtit">［活动流程］</p>
+                    <img src="https://img.alicdn.com/tps/TB1KEgKOXXXXXcmaXXXXXXXXXXX-740-43.png" width="740" height="43" class="wsh-lcimg"/>
+                    <ul class="wsh-stepbx2 clearfix">
+                        <li class="wsh-fir">点击页面按钮</li>
+                        <li class="wsh-sec">选择贷款产品</li>
+                        <li class="wsh-thr">支用享优惠</li>
+                    </ul>
+                </div>
+            </div>
+            <!--天猫正式 end-->
+            <a href="javascript:;" class="wsh-rule">活动规则 &gt;</a>
+        </div>
+    </div>
+    <!--main end-->
+    <!--foot start-->
+    <div class="foot-wrap">
+        <div class="foot-content">
+            <img src="https://img.alicdn.com/tps/TB1LOdINpXXXXXuapXXXXXXXXXX-990-50.png" width="990" height="50"/>
+        </div>
+    </div>
+    <!--foot end-->
+    <!--弹窗蒙层-->
+    <div class="pop-mask"></div>
+    <!--弹窗蒙层-->
+    <!--活动未开始-->
+    <div class="pop J_pop pop1">
+        <div class="pop-close J_popClose"></div>
+        <img src="https://img.alicdn.com/tps/TB1ZGcKOXXXXXXOaFXXXXXXXXXX-561-441.png" width="561" height="441"/>
+    </div>
+    <!--活动未开始-->
+    <!--不准入-->
+    <div class="pop J_pop pop2">
+        <div class="pop-close J_popClose"></div>
+        <img src="https://img.alicdn.com/tps/TB1u5w4OXXXXXbUXVXXXXXXXXXX-561-441.png" width="561" height="441"/>
+    </div>
+    <!--不准入-->
+    <!--活动结束-->
+    <div class="pop J_pop pop3">
+        <div class="pop-close J_popClose"></div>
+        <img src="https://img.alicdn.com/tps/TB1rgc8OXXXXXbvXVXXXXXXXXXX-561-441.png" width="561" height="441"/>
+    </div>
+    <!--活动结束-->
+    <!--规则弹窗-->
+    <div class="rule-pop J_pop">
+        <div class="rule-text">
+            <img src="https://img.alicdn.com/tps/TB1vnsnMVXXXXbbXXXXXXXXXXXX-16-16.png" width="16" height="16" class="rule-close-img"/>
+            <div class="pop-close J_popClose"></div>
+            <div class="rule-tit">活动规则</div>
+            <ul class="rule-list">
+                <li class="detail"><span class="detail-tit">活动时间：</span><p>2016年11月12日09:00:00 -11月15日23:59:59。</p></li>
+                <li class="detail"><span class="detail-tit">活动对象：</span><p>具有订单类贷款申请资格的卖家\天猫卖家。</p></li>
+                <li class="detail"><span class="detail-tit">活动参与方式：</span><p>活动期间，具有订单类贷款申请资格的卖家在各个客户端(淘宝贷款\天猫贷款PC网站、千牛、支付宝钱包、手淘、网商银行APP)活动页面点击“立即支用”按钮进行提前收款申请且成功获得提前收款资金，即可享受对应活动页面显示的优惠。</p></li>
+                <li class="detail"><span class="detail-tit">活动优惠及发放：</span>
+                    <ul class="detail-list">
+                        <li>您获得的提前收款卡，在使用有效期内可免除与面值相等的提前收款金额所产生的提前收款服务费。</li>
+                        <li>提前收款卡将于活动结束后三个工作日内发放。</li>
+                        <li>活动期间，在淘宝贷款\天猫贷款PC网站、千牛、支付宝钱包、手机淘宝App支用的卖家或在多渠道支用的卖家，提前收款卡发放至淘宝贷款\天猫贷款PC网站，请于PC网站使用。在网商银行App支用的卖家，提前收款卡发放至至网商银行App，仅限于在网商银行App中使用。</li>
+                        <li>中奖名单查询：XXX</li>
+                    </ul>
+                </li>
+                <li class="detail"><span class="detail-tit">其他规则：</span>
+                    <ul class="detail-list">
+                        <li class="clearfix"><span>1）</span><em>提前收款卡使用有效期截止2016年11月30日。</em></li>
+                        <li class="clearfix"><span>2）</span><em>淘宝网和天猫卖家成功获贷的金额以贷款实际发放的金额为准。</em></li>
+                        <li class="clearfix"><span>3）</span><em>淘宝网和天猫卖家成功获得的优惠以贷款实际签订合同的内容为准。</em></li>
+                        <li class="clearfix"><span>4）</span><em>本活动优惠仅限通过本活动页面参与有效，且与其他折扣优惠不能同时使用。</em></li>
+                        <li class="clearfix"><span>5）</span><em>活动过程中如发现有碍于其他卖家公平参与本活动或违反本活动目的之行为，网商银行&蚂蚁小贷有权取消有此行为的卖家参加本活动的资格或因参加活动所获的优惠。</em></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--规则弹窗-->
+</div>
+<script>
+    window._to = {
+        st: Date.now(),
+        role_id: '',
+    };
+</script>
+<script src="//as.alipayobjects.com/g/animajs/mtracker/2.1.2/??seed.js,mtracker.js"></script>
+<script src="https://a.alipayobjects.com/jquery/jquery/1.7.2/jquery.js"></script>
+<script>
+    (function(jQuery){
+        //收藏
+        var follow = function(){
+            var url=location.href;
+            jQuery("#addFavorite").attr("href",url);
+            document.getElementById("addFavorite").onclick=function(){
+                bookmark();
+                return false;
+            };
+            function bookmark(){
+                var title = document.title;
+                var url = location.href;
+                var bro=jQuery.browser;
+                console.log(title);
+                console.log(url);
+                if(window.sidebar){
+                    window.sidebar.addPanel(title,url,"");
+                }
+                else if(bro.msie){
+                    window.external.AddFavorite(url,title);
+                }else {
+                    alert("您的浏览器不支持此功能，windows系统请按ctrl+D，Mac系统请按Cmd+D来加入收藏夹！");
+                }
+            }
+        }();
+        //弹窗
+        jQuery('.J_popClose').on('click',function(){
+            jQuery('.J_pop').hide();
+            jQuery('.pop-mask').hide();
+        });
+        jQuery('.wsh-rule').on('click',function(){
+            jQuery('.rule-pop').show();
+            jQuery('.pop-mask').show();
+            window.scrollTo(0,0);
+        });
+        //版头动画
+        var p1=jQuery('.wsh-ball');
+        var p2=jQuery('.wsh-people');
+        var p3=jQuery('.wsh-other');
+        var p4=jQuery('.wsh-zi');
+        var p5=jQuery('.wsh-yg');
+        var scX1 = parseInt(p1.css('left')||0);
+        var scX2 = parseInt(p2.css('left')||0);
+        var scX3 = parseInt(p3.css('left')||0);
+        var scX4 = parseInt(p4.css('left')||0);
+        var scX5 = parseInt(p5.css('left')||0);
+        jQuery(document).on("mousemove",function(e){
+            if(jQuery(document).scrollTop() <= jQuery('.wsh-banner').offset().top){
+                var myMouseX = e.pageX-jQuery(window).width()/2;
+                p1.css('left',(scX1+myMouseX*0.04));
+                p2.css('left',(scX2+myMouseX*0.02));
+                p3.css('left',(scX3+myMouseX*0.035));
+                p4.css('left',(scX4+myMouseX*0.015));
+                p5.css('left',(scX5+myMouseX*0.02));
+            }
+        });
+    })(jQuery);
+
+</script>
+</body>
+</html>
