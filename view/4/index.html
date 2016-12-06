@@ -200,6 +200,7 @@
             color: #fe6a11;
         }
         .wb-b3-table td em{
+            font-weight: normal;
             font-style: normal;
             font-size: 12px;
             color: #c1bbb9;
@@ -236,9 +237,15 @@
             text-align: center;
             cursor: pointer;
         }
-        .current{
+        .wb-b5-list1 li:hover{
+            color: #00a2ac;
+        }
+        .wb-b5-list1 .current{
             border-bottom: 3px solid #00a2ac;
             font-weight: 700;
+        }
+        .wb-b5-list1 .current:hover{
+            color: #333333;
         }
         .wb-con{
             display: none;
@@ -348,7 +355,7 @@
                 <img src="https://img.alicdn.com/tps/TB1LyXOOFXXXXaJXFXXXXXXXXXX-1920-428.jpg" width="1920" height="428"/>
             </div>
             <div class="wb-x-fixed">
-                <img src="https://img.alicdn.com/tps/TB1gQJJOFXXXXXBXVXXXXXXXXXX-439-207.png" width="439" height="207"/>
+                <img src="https://img.alicdn.com/tps/TB1ttpPOFXXXXaPapXXXXXXXXXX-731-413.png" width="366" height="207"/>
                 <a href="https://authweb.alipay.com/login/trust/mybankpaas?goto=https%3a%2f%2flogin.mybank.cn%2flogin%2fantpass%2ftrustlogin%2fafterlogin.htm%3ftarget%3dhttps%3a%2f%2ffund.mybank.cn%2falipay%2fprocess.html%26site%3dalipay%26loginMethod%3d1" class="wb-blnk" target="_blank" seed="B_ljty"></a>
             </div>
         </div>
@@ -747,7 +754,17 @@ role_id: '',
         jQuery(".wb-b5-list1 li").each(function(i){
             jQuery(this).click(function(){
                 clickFn('.wb-b5-list1 li','.wb-con','current',i);
-            })
+            });
+//            if(jQuery(this).hasClass('current')){
+//
+//            }else{
+//                jQuery(this).mouseenter(function(){
+//                    jQuery(this).addClass('cuthover');
+//                });
+//                jQuery(this).mouseleave(function(){
+//                    jQuery(this).removeClass('cuthover');
+//                });
+//            }
         });
     })(jQuery);
     document.onselectstart=function(){return false;}
