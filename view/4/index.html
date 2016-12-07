@@ -349,6 +349,76 @@
             background: url("https://img.alicdn.com/tps/TB1x0HCOXXXXXbjapXXXXXXXXXX-1920-272.jpg") no-repeat center top;
             border-bottom:1px solid #005658;
         }
+        /*尾部样式*/
+        /*copyright*/
+        .foot-wrap {
+            background-color: #f8f8f8;
+            min-width: 990px;
+        }
+        .foot-content {
+            width: 990px;
+            margin: 0 auto;
+            padding: 30px 5px;
+            font-size: 14px;
+            line-height: 1.5;
+            *zoom: 1;
+            font-size: 12px;
+            line-height: 12px;
+            background-color: #f8f8f8;
+            background: url(https://os.alipayobjects.com/rmsportal/AfFplHSMsIUAFHH.png) right -1px no-repeat;
+        }
+        .foot-content a{
+            color: #333;
+            margin: 0 6px;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .foot-content a:hover{
+            color: #00C2C2;
+            line-height: 12px;
+            text-decoration: none;
+        }
+        .foot-content:before,
+        .foot-content:after {
+            display: table;
+            content: "";
+        }
+        .foot-content:after {
+            clear: both;
+        }
+        .foot-left {
+            float: left;
+            display: inline;
+        }
+        .foot-left img{
+            height: 26px;
+        }
+        .foot-right {
+            float: right;
+            display: inline;
+            text-align: right;
+        }
+        .foot-intro {
+            padding-top: 14px;
+            position: relative;
+            right: -10px;
+            color: #D6D6D6;
+        }
+        .foot-copyright {
+            padding-top: 20px;
+            line-height: 12px;
+            color: #333;
+        }
+        .foot-link {
+            position: relative;
+            left: -10px;
+            color: #D6D6D6;
+            padding-top: 18px;
+            line-height: 12px;
+        }
+        .copyright{
+            margin-right: 15px;
+        }
     </style>
 </head>
 <body>
@@ -738,6 +808,28 @@
     <div class="wb-bottom">
         <div class="wb-x-con">
             <img src="https://img.alicdn.com/tps/TB1ufY1OXXXXXXuXFXXXXXXXXXX-1190-272.png" width="1190" height="272" />
+        </div>
+    </div>
+    <div class="foot-wrap">
+        <div class="foot-content">
+            <div class="foot-left">
+                <img src="https://os.alipayobjects.com/rmsportal/rsIfqqRrbmvgxyw.png" class="mybank-foot-logo">
+                <div class="foot-link">
+                    <a href="http://www.antgroup.com/page/alipay.htm" target="_blank" title="支付宝">支付宝</a> |
+                    <a href="http://www.antgroup.com/page/zmxy.htm" target="_blank" title="芝麻信用">芝麻信用</a> |
+                    <a href="" target="_blank" title="蚂蚁小贷">蚂蚁小贷</a> |
+                    <a href="http://www.antgroup.com/page/jinrongyun.htm" target="_blank" title="蚂蚁金融云">蚂蚁金融云</a> |
+                    <a href="http://www.antgroup.com/page/yuebao.htm" target="_blank" title="余额宝">余额宝</a> |
+                    <a href="" target="_blank" title="余额宝">招财宝</a>
+                </div>
+            </div>
+            <div class="foot-right">
+                <div class="foot-intro">
+                    <a href="https://www.mybank.cn/about.htm" target="_blank" title="关于我们">关于我们</a> |
+                    <a href="https://job.alibaba.com/zhaopin/index.htm" target="_blank" title="诚招英才">诚招英才</a>
+                </div>
+                <p class="foot-copyright"><span class="copyright">浙ICP备15020822号</span>Copyright © 2015-2016 浙江网商银行</p>
+            </div>
         </div>
     </div>
 </div>
