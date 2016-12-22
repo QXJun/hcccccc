@@ -22,7 +22,7 @@
         a,button{cursor:pointer;}
         h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
         del,ins,u,s,a,a:hover{text-decoration:none;}
-        body,textarea,input,button,select,keygen,legend{font:12px/1.14 Helvetica,PingFang,Hiragino Sans,Microsoft YaHei,\5b8b\4f53;color:#333;outline:0;}
+        body,textarea,input,button,select,keygen,legend{outline:0;}
         body{background:#fff;}
         /*清浮动*/
         .clearfix{*zoom:1;}
@@ -30,7 +30,7 @@
         .wb-x-wrap{
             position:relative;
             font-size:16px;
-            font-family: Helvetica,PingFang,Hiragino Sans,Microsoft YaHei;
+            font-family: 'Microsoft YaHei';
             width:100%;
             min-width:1190px;
             overflow: hidden;
@@ -130,9 +130,6 @@
             color: #fff;
             border-radius: 3px;
         }
-        .wb-x-wrap .wb-btn:hover{
-
-        }
     </style>
 </head>
 <body>
@@ -179,6 +176,9 @@
         </div>
     </div>
 </div>
+<script>
+    document.onselectstart=function(){return false;}
+</script>
 <script>
     window._to = {
         st: Date.now(),
